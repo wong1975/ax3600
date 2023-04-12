@@ -30,14 +30,14 @@ sed -i '/sed -i "s\/services\/system\/g" \/usr\/lib\/lua\/luci\/controller\/cpuf
 sed -i '/exit 0/i sed -i "s/services/system/g" /usr/lib/lua/luci/controller/cpufreq.lua'  package/lean/default-settings/files/zzz-default-settings
 
 #themes  add (svn co command meaning: specified version such as https://github) 
-git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
-git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+#git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+#git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
+#git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 # Add luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon 
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+#git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon 
+#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 #Add  additional non-essential packages 
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome 
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome 
+#git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
