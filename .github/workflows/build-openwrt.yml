@@ -85,13 +85,22 @@ jobs:
 
     - name: luci-theme-argonn
       run: |
-        cd openwrt/package 		
-        git clone https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argonn
+        cd openwrt/package
+        rm -rf luci-theme-argon
+        git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon luci-theme-argon 
+        git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config luci-app-argon-config
+        git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git luci-theme-infinityfreedom
+        git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git luci-theme-opentomcat
+        git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git luci-theme-atmaterial
+        git clone https://github.com/sirpdboy/luci-theme-opentopd.git luci-theme-opentopd
+        #git clone https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argonn
 
-    - name: luci-app-romupdate
+    - name: luci-apps
       run: |
         cd openwrt/package
-        git clone https://github.com/coldrook/luci-app-romupdate.git
+        git clone https://github.com/coldrook/luci-app-romupdate.git luci-app-romupdate
+        git clone https://github.com/rufengsuixing/luci-app-adguardhome.git luci-app-adguardhome 
+        git clone https://github.com/garypang13/luci-app-bypass luci-app-bypass
 
     - name: Update & install feeds
       run: |
