@@ -12,6 +12,16 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 
+#  Add date to the compiled firmware file name 
+date=`date +%m.%d`
+date1=`date +%h`
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION=\'Openwrt\'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_REVISION.*/DISTRIB_REVISION=\'$date\'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_RELEASE.*/DISTRIB_RELEASE=\'$date1\'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)=\"IMG_PREFIX:=$(shell date +%m-%d)-$(VERSION_DIST_SANITIZED)'\"/g" include/image.mk
+#  Add date to the compiled firmware file name 
+#sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell TZ=Europe/Stockholm date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
+
 
 # Set Default Wireless SSID (AX3600)
 sed -i 's/wireless.default_radio${devidx}.ssid=OpenWrt/wireless.default_radio${devidx}.ssid=AX3600/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -21,9 +31,6 @@ curl -k -L 'https://raw.githubusercontent.com/tavinus/opkg-upgrade/master/opkg-u
 
 #  Modify the number of connections 
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
-
-#  Add date to the compiled firmware file name 
-sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell TZ=Europe/Stockholm date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 # modify the plugin location 
 sed -i '/sed -i "s\/services\/system\/g" \/usr\/lib\/lua\/luci\/controller\/cpufreq.lua/d'  package/lean/default-settings/files/zzz-default-settings
